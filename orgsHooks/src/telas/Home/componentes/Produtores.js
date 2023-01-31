@@ -16,9 +16,27 @@ export default function Produtores(){
         console.log(retorno);
     }, []);
 
+    const TopoLista = () => {
+        return <Text style={estilos.titulo}>{titulo}</Text>
+    }
+
     return <FlatList
         data={lista}
         renderItem={({item:{nome}}) => <Text>{nome}</Text>}
-        ListHeaderComponent = {() => <Text>{titulo}</Text>}
+        keyExtractor={({nome}) => nome}
+        ListHeaderComponent = {TopoLista}
     />
 }
+
+const estilos = StyleSheet.create({
+    titulo: {
+        fontSize: 20,
+        lineHeight:32,
+        marginHorizontal: 16,
+        marginTop: 16,
+        fontWeight: 'bold',
+        color: '#464646'
+    },
+
+
+})
