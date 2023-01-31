@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Text, View, Image, StyleSheet, FlatList} from 'react-native';
 import { carregaProdutores } from "../../../servicos/carregaDados";
 
-export default function Produtores(){
+export default function Produtores({topo: Topo}){
 
     const [titulo, setTitulo] = useState(''); // criando estado titulo
     const [lista, setLista] = useState([]); // criando estado lista
@@ -17,7 +17,10 @@ export default function Produtores(){
     }, []);
 
     const TopoLista = () => {
-        return <Text style={estilos.titulo}>{titulo}</Text>
+        return <>
+            <Topo/>
+            <Text style={estilos.titulo}>{titulo}</Text>
+        </>
     }
 
     return <FlatList
