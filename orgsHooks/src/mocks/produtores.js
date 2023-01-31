@@ -5,7 +5,7 @@ import grow from  "../assets/produtores/grow.png";
 import potager from  "../assets/produtores/potager.png";
 
 const gerarNumeroAleatorio = (min, max) =>{
-    return Math.floor(random()*(max-min+1)+min);
+    return Math.floor(Math.random()*(max-min+1)+min);
 }
 
 const produtores ={
