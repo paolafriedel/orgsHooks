@@ -1,4 +1,4 @@
-import React, {useReducer} from "react";
+import React, {useReducer, useMemo} from "react";
 import {Text, View, Image, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import Estrelas from "../../../componentes/Estrelas";
 
@@ -15,7 +15,7 @@ export default function Produtor({nome, imagem, distancia, estrelas}){
         (selecionado) => !selecionado, 
         false); //use reducer recebe um estado e uma ação, nesse caso, como não tem ação é false 
 
-    const distanciaTexto = distanciaEmMetros(distancia)
+    const distanciaTexto = useMemo(() => distanciaEmMetros(distancia), [distancia]); // sempre que a distancia for alterada, a distanciaTexto seja alterada
 
     return <TouchableOpacity 
             style={estilos.cartao}
